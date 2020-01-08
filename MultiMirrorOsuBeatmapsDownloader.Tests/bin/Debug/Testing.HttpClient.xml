@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Testing.HttpClient</name>
+    </assembly>
+    <members>
+        <member name="T:Testing.HttpClient.HttpClientTestingFactory">
+            <summary>
+            Provides a mechanism for creating an <see cref="P:Testing.HttpClient.HttpClientTestingFactory.HttpClient"/> for unit testing purposes, including expecting and providing mock responses to requests.
+            </summary>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.#ctor(Testing.HttpClient.HttpClientTestingFactorySettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Testing.HttpClient.HttpClientTestingFactory"/> class.
+            </summary>
+            <param name="settings">Settings to control the behavior of this object</param>
+        </member>
+        <member name="P:Testing.HttpClient.HttpClientTestingFactory.HttpClient">
+            <summary>
+            Gets the HttpClient to provide to the code being tested.
+            </summary>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.Expect(System.String)">
+            <summary>
+            Expect a GET request to have been made which matches the given uriString and return its mock.
+            If multiple requests match, one will be returned. Each request may only be expected once and will only be returned once.
+            If no matching request has been made, this method will throw a <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="uriString">The expected uri as a string</param>
+            <returns>A <see cref="T:Testing.HttpClient.TestRequest"/> object matching the provided values</returns>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.Expect(System.Uri)">
+            <summary>
+            Expect a GET request to have been made which matches the given Uri and return its mock.
+            If multiple requests match, one will be returned. Each request may only be expected once and will only be returned once.
+            If no matching request has been made, this method will throw a <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="uri">The expected uri</param>
+            <returns>A <see cref="T:Testing.HttpClient.TestRequest"/> object matching the provided values</returns>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.Expect(System.Net.Http.HttpMethod,System.String)">
+            <summary>
+            Expect a request to have been made which matches the given method and uriString, and return its mock.
+            If multiple requests match, one will be returned. Each request may only be expected once and will only be returned once.
+            If no matching request has been made, this method will throw a <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="method">The expected http method</param>
+            <param name="uriString">The expected uri as a string</param>
+            <returns>A <see cref="T:Testing.HttpClient.TestRequest"/> object matching the provided values</returns>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.Expect(System.Net.Http.HttpMethod,System.Uri)">
+            <summary>
+            Expect a request to have been made which matches the given method and Uri, and return its mock.
+            If multiple requests match, one will be returned. Each request may only be expected once and will only be returned once.
+            If no matching request has been made, this method will throw a <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="method">The expected http method</param>
+            <param name="uri">The expected uri</param>
+            <returns>A <see cref="T:Testing.HttpClient.TestRequest"/> object matching the provided values</returns>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.EnsureNoOutstandingRequests">
+            <summary>
+            Throws an exception if there are still outstanding requests.
+            </summary>
+        </member>
+        <member name="M:Testing.HttpClient.HttpClientTestingFactory.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Testing.HttpClient.HttpClientTestingFactorySettings">
+            <summary>
+            Settings that control the behavior of the <see cref="T:Testing.HttpClient.HttpClientTestingFactory"/>
+            </summary>
+        </member>
+        <member name="P:Testing.HttpClient.HttpClientTestingFactorySettings.IgnoreUriCasing">
+            <summary>
+            Gets or sets a value indicating whether to ignore casing when matching Uris. Uris are technically case-sensitive, but in practice they are used as such. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Testing.HttpClient.HttpClientTestingFactorySettings.RequestTimeout">
+            <summary>
+            Gets or sets the timeout after which to throw. Defaults to 1 second.
+            </summary>
+            <remarks>
+            This is primarily in place to avoid awaiting http calls which are not properly expected. Set this value higher
+            if there may be longer delays between a request being made and the unit test being able to provide an expectation.
+            </remarks>
+        </member>
+        <member name="P:Testing.HttpClient.HttpClientTestingFactorySettings.ExpectationMatchTimeout">
+            <summary>
+            Gets or sets the timeout for which to wait for a request to come matching an expectation. Defaults to 100 milliseconds.
+            </summary>
+            <remarks>
+            This is primarily in place to support sequential or chained http calls where the unit test may not be able to know whether
+            a later request has been made after an earlier one finishes. This is set to a fairly low value to avoid long delays in the
+            unmatched expectation case. Set this value higher if there may be longer delays between two sequential requests.
+            </remarks>
+        </member>
+        <member name="T:Testing.HttpClient.TestRequest">
+            <summary>
+            An object that encapsulates a matched request, as well as exposes various methods to respond to the request.
+            </summary>
+        </member>
+        <member name="P:Testing.HttpClient.TestRequest.Request">
+            <summary>
+            Gets the matched request.
+            </summary>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond">
+            <summary>
+            Responds to the request with an empty OK response.
+            </summary>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.Int32)">
+            <summary>
+            Responds to the request with the provided status code.
+            </summary>
+            <param name="statusCode">Response status code</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.Net.HttpStatusCode)">
+            <summary>
+            Responds to the request with the provided status code.
+            </summary>
+            <param name="statusCode">Response status code</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.IO.Stream)">
+            <summary>
+            Responds to the request with the provided response body.
+            </summary>
+            <param name="body">The response boddy as a stream</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.String)">
+            <summary>
+            Responds to the request with the provided response body.
+            </summary>
+            <param name="body">The response boddy as a string</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.Net.HttpStatusCode,System.IO.Stream)">
+            <summary>
+            Responds to the request with the provided status code and response body.
+            </summary>
+            <param name="statusCode">Response status code</param>
+            <param name="body">The response boddy as a stream</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Responds to the request with the provided status code and response body.
+            </summary>
+            <param name="statusCode">Response status code</param>
+            <param name="body">The response boddy as a string</param>
+        </member>
+        <member name="M:Testing.HttpClient.TestRequest.Respond(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Responds to the request with the provided status code.
+            </summary>
+            <param name="response">Response message</param>
+        </member>
+    </members>
+</doc>

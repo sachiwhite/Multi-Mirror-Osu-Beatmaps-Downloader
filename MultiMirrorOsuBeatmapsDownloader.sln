@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMirrorOsuBeatmapsDownloader", "MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader.csproj", "{9A0AA7A7-B7D2-4807-93FA-108A46DF5D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiMirrorOsuBeatmapsDownloader.Tests", "MultiMirrorOsuBeatmapsDownloader.Tests\MultiMirrorOsuBeatmapsDownloader.Tests.csproj", "{FBF17CDB-2DB6-4288-B919-0FA9597BF525}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A0AA7A7-B7D2-4807-93FA-108A46DF5D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0AA7A7-B7D2-4807-93FA-108A46DF5D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0AA7A7-B7D2-4807-93FA-108A46DF5D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0AA7A7-B7D2-4807-93FA-108A46DF5D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF17CDB-2DB6-4288-B919-0FA9597BF525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF17CDB-2DB6-4288-B919-0FA9597BF525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF17CDB-2DB6-4288-B919-0FA9597BF525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF17CDB-2DB6-4288-B919-0FA9597BF525}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0168671A-5695-4DFE-9063-4DF183FA0E74}
+	EndGlobalSection
+EndGlobal
