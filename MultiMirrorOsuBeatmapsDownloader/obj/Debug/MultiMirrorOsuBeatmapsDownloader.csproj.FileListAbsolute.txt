@@ -15,3 +15,6 @@ C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatm
 C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\obj\Debug\MultiMirrorOsuBeatmapsDownloader.csproj.CopyComplete
 C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\obj\Debug\MultiMirrorOsuBeatmapsDownloader.exe
 C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\obj\Debug\MultiMirrorOsuBeatmapsDownloader.pdb
+C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\bin\Debug\HtmlAgilityPack.dll
+C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\lewon\source\repos\MultiMirrorOsuBeatmapsDownloader\MultiMirrorOsuBeatmapsDownloader\bin\Debug\HtmlAgilityPack.xml
