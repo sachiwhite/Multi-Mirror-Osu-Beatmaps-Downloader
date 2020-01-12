@@ -18,6 +18,10 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
                 var response = await client.GetAsync(query);
                 return response;
             }
+            catch(InvalidOperationException)
+            {
+                Messaging.Report("Podany adres jest nieprawidłowy!", "Błąd");
+            }
             catch (HttpRequestException ex)
             {
                 if(ex.InnerException is WebException w) 

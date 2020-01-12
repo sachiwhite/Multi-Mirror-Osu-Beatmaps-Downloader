@@ -10,5 +10,6 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
     public interface IWebsiteLoader
     {
         Task<HttpResponseMessage> LoadWebsite(string query);
+        Task<string> GetPageContent(string query);
     }
 }

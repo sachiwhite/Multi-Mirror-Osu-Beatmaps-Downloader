@@ -20,10 +20,9 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
         }
         public async Task ParseWebsite(string html)
         {
-            //var html = @"https://bloodcat.com/osu/?q=freedom%20dive&c=b&s=&m=&g=&l=";
-            HtmlWeb web = new HtmlWeb();
+            var contentToParse = await websiteLoader.GetPageContent(html);
             var htmlDoc = new HtmlDocument();
-            htmlDoc.Load(html);
+            htmlDoc.LoadHtml(contentToParse);
             var node = htmlDoc.DocumentNode.SelectNodes("//a[@href]");
             foreach (var n in node)
             {
@@ -46,7 +45,7 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
                 }
             }
         }
-        public List<SongsInfo> RetrieveSongsList(string html)
+        public List<SongsInfo> RetrieveSongsList()
         {
             return songsParsed;
         }

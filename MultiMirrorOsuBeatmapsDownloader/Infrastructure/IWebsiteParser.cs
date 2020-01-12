@@ -9,7 +9,7 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
     public interface IWebsiteParser
     {
-            
-       List<SongsInfo> RetrieveSongsList(string query);
+        Task ParseWebsite(string html);
+       List<SongsInfo> RetrieveSongsList();
     }
 }

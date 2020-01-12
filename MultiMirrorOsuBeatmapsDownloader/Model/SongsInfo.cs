@@ -18,5 +18,6 @@ namespace MultiMirrorOsuBeatmapsDownloader.Model
         public string Title { get; private set; }
         public string LinkToThumbnail { get; private set; }
         public string DownloadLink { get; private set; }
+        //public int BeatmapNumber { get; private set; }
     }
 }
