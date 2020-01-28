@@ -38,9 +38,9 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
             }
         }
 
-        public List<SongsInfo> RetrieveSongsList()
+        public List<SongsInfo> RetrieveSongsList(string query)
         {
-            return SongsList;
+            return SongsList.Where(s=> s.Title.Contains(query)).ToList();
         }
     }
 }

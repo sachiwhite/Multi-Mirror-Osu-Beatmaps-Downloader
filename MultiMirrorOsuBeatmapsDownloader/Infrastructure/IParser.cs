@@ -11,6 +11,6 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
     {
         List<SongsInfo> SongsList { get;}
         Task Parse(string query);
-       List<SongsInfo> RetrieveSongsList();
+       List<SongsInfo> RetrieveSongsList(string query);
     }
 }

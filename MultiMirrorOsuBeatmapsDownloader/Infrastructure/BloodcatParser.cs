@@ -52,7 +52,7 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
                 }
             }
         }
-        public List<SongsInfo> RetrieveSongsList()
+        public List<SongsInfo> RetrieveSongsList(string query = "")
         {
             return SongsList;
         }

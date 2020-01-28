@@ -20,9 +20,9 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
             throw new NotImplementedException();
         }
 
-        public List<SongsInfo> RetrieveSongsList()
+        public List<SongsInfo> RetrieveSongsList(string query)
         {
-            return songsParsed;
+            throw new NotImplementedException();
         }
     }
 }
