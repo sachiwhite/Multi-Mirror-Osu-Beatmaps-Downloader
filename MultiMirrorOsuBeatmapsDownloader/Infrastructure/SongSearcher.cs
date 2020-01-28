@@ -9,8 +9,8 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
     public class SongSearcher
     {
-        private readonly IWebsiteParser websiteParser;
-        public SongSearcher(IWebsiteParser websiteParser)
+        private readonly IParser websiteParser;
+        public SongSearcher(IParser websiteParser)
         {
             this.websiteParser = websiteParser;
         }

@@ -89,6 +89,7 @@
     <Compile Include="Infrastructure\BloodcatParser.cs" />
     <Compile Include="Infrastructure\FtpLoader.cs" />
     <Compile Include="Infrastructure\FtpParser.cs" />
+    <Compile Include="Infrastructure\FtpResponseType.cs" />
     <Compile Include="Infrastructure\IFtpLoader.cs" />
     <Compile Include="Infrastructure\IWebsiteLoader.cs" />
     <Compile Include="Infrastructure\IParser.cs" />
