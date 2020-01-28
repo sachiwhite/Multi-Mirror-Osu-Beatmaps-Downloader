@@ -9,17 +9,24 @@ using MultiMirrorOsuBeatmapsDownloader.Model;
 
 namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
-    public class BloodcatParser : IWebsiteParser
+    public class BloodcatParser : IParser
     {
-        private List<SongsInfo> songsParsed;
         private readonly IWebsiteLoader websiteLoader;
+
+        public List<SongsInfo> SongsList 
+        {
+            get;
+            private set;
+        }
+
         public BloodcatParser(IWebsiteLoader websiteLoader)
         {
-            this.websiteLoader = websiteLoader;
-            songsParsed = new List<SongsInfo>();
+            this.websiteLoader = websiteLoader as IWebsiteLoader;
+            SongsList = new List<SongsInfo>();
         }
-        public async Task ParseWebsite(string html)
+        public async Task Parse(string html)
         {
+            
             var contentToParse = await websiteLoader.GetPageContent(html);
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(contentToParse);
@@ -40,14 +47,14 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
                         string thumbnailAddress = $"//b.ppy.sh/thumb/{mapNumber}l.jpg";
                         address = "https://bloodcat.com/osu/" + address;
                         SongsInfo infoToAdd = new SongsInfo(name, thumbnailAddress, address);
-                        songsParsed.Add(infoToAdd);
+                        SongsList.Add(infoToAdd);
                     }
                 }
             }
         }
         public List<SongsInfo> RetrieveSongsList()
         {
-            return songsParsed;
+            return SongsList;
         }
     }
 }

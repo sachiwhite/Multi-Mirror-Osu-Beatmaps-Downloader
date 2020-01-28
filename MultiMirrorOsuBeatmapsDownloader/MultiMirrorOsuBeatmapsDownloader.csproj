@@ -38,6 +38,9 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="CredLib">
+      <HintPath>.\CredLib.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.17.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.11.17\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -84,8 +87,11 @@
     </Compile>
     <Compile Include="Infrastructure\BeatConnectParser.cs" />
     <Compile Include="Infrastructure\BloodcatParser.cs" />
+    <Compile Include="Infrastructure\FtpLoader.cs" />
+    <Compile Include="Infrastructure\FtpParser.cs" />
+    <Compile Include="Infrastructure\IFtpLoader.cs" />
     <Compile Include="Infrastructure\IWebsiteLoader.cs" />
-    <Compile Include="Infrastructure\IWebsiteParser.cs" />
+    <Compile Include="Infrastructure\IParser.cs" />
     <Compile Include="Infrastructure\MockWebsiteLoader.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\SongSearcher.cs" />

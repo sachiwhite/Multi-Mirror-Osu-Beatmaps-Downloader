@@ -7,9 +7,10 @@ using MultiMirrorOsuBeatmapsDownloader.Model;
 
 namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
-    public interface IWebsiteParser
+    public interface IParser
     {
-        Task ParseWebsite(string html);
+        List<SongsInfo> SongsList { get;}
+        Task Parse(string query);
        List<SongsInfo> RetrieveSongsList();
     }
 }

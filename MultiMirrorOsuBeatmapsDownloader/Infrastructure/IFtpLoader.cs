@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
-    public interface IWebsiteLoader 
+    public interface IFtpLoader
     {
-        Task<HttpResponseMessage> LoadWebsite(string query);
-        Task<string> GetPageContent(string query);
+        Task<FtpWebResponse> LoadWebsite(string query);
+        Task<string> GetContent(string query);
     }
 }

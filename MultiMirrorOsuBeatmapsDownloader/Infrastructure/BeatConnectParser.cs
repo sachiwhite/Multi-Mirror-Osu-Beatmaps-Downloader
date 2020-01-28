@@ -7,11 +7,14 @@ using MultiMirrorOsuBeatmapsDownloader.Model;
 
 namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
-    class BeatConnectParser : IWebsiteParser
+    class BeatConnectParser : IParser
     {
         private List<SongsInfo> songsParsed;
         private readonly IWebsiteLoader websiteLoader;
-        public Task ParseWebsite(string html)
+
+        public List<SongsInfo> SongsList => throw new NotImplementedException();
+
+        public Task Parse(string html)
         {
 
             throw new NotImplementedException();

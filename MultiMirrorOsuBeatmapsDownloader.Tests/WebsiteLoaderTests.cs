@@ -70,7 +70,7 @@ namespace MultiMirrorOsuBeatmapsDownloader.Tests
                .ReturnsAsync(new HttpResponseMessage()
                {
                    StatusCode = HttpStatusCode.OK,
-                   Content = new StringContent("[{'id':1,'value':'1'}]"),
+                   Content = new StringContent(File.ReadAllText("mocksite.html")),
                })
                .Verifiable();
 

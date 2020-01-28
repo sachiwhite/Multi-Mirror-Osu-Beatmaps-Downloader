@@ -24,7 +24,7 @@ namespace MultiMirrorOsuBeatmapsDownloader.Tests
             string path = "mocksite";
             IWebsiteLoader loader = new MockWebsiteLoader();
             BloodcatParser parser = new BloodcatParser(loader);
-            await parser.ParseWebsite(path);
+            await parser.Parse(path);
             var parsedSongs = parser.RetrieveSongsList();
             var songsToCompare = parsedSongs.Select(data =>
             new
