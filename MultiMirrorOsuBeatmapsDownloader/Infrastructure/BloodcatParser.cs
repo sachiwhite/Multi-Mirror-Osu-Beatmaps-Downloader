@@ -21,9 +21,14 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 
         public BloodcatParser(IWebsiteLoader websiteLoader)
         {
-            this.websiteLoader = websiteLoader as IWebsiteLoader;
+            this.websiteLoader = websiteLoader;
             SongsList = new List<SongsInfo>();
         }
+        /// <summary>
+        /// method to parse html file from bloodcat website
+        /// </summary>
+        /// <param name="html">Search criteria</param>
+        /// <returns></returns>
         public async Task Parse(string html)
         {
             

@@ -30,9 +30,14 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
            
             return null;
         }
+        private string PrepareLink(string query)
+        {
+            throw new NotImplementedException();
+        }
         public async Task<string> GetPageContent(string query)
         {
-            var response = await LoadWebsite(query);
+            var addressToLoadFrom = PrepareLink(query);
+            var response = await LoadWebsite(addressToLoadFrom);
             var content = await response.Content.ReadAsStringAsync();
             return content;
 

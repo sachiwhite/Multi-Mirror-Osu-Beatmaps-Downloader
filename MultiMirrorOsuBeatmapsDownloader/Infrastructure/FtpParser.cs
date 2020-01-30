@@ -9,20 +9,31 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
 {
     public class FtpParser : IParser
     {
+        private readonly IFtpLoader ftpLoader;
+        public FtpParser(IFtpLoader ftpLoader)
+        {
+            this.ftpLoader = ftpLoader;
+            SongsList = new List<SongsInfo>();
+        }
         public List<SongsInfo> SongsList
         { 
             get; 
             private set; 
         }
-
+        /// <summary>
+        /// method to parse results from FTP server
+        /// </summary>
+        /// <param name="query"> search criteria </param>
+        /// <returns></returns>
         public async Task Parse(string query)
         {
-            var songsArray = query.Split('\n').ToList();
+            var data = await ftpLoader.GetContent();
+            var songsArray = data.Split('\n').ToList();
             for (int i = 0; i < songsArray.Count; i++)
             {
                 songsArray[i] = new string(songsArray[i].TrimEnd('\r').Skip(5).ToArray());
                 var songToAdd = songsArray[i].Split(new char[] { ' ' }, 2).ToArray();
-                if (songToAdd.Length > 1)
+                if (songToAdd.Length > 1 && songToAdd[1].Contains(query))
                 {
                     SongsList.Add(
                         new SongsInfo(
@@ -38,8 +49,9 @@ namespace MultiMirrorOsuBeatmapsDownloader.Infrastructure
             }
         }
 
-        public List<SongsInfo> RetrieveSongsList(string query)
+        public List<SongsInfo> RetrieveSongsList(string query="")
         {
+            return SongsList;
             return SongsList.Where(s=> s.Title.Contains(query)).ToList();
         }
     }

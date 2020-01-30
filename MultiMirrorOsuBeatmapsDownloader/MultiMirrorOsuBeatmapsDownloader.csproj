@@ -85,7 +85,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\BeatConnectParser.cs" />
     <Compile Include="Infrastructure\BloodcatParser.cs" />
     <Compile Include="Infrastructure\FtpLoader.cs" />
     <Compile Include="Infrastructure\FtpParser.cs" />

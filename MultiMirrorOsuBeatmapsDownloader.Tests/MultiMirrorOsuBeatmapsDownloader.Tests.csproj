@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BloodcatParserTests.cs" />
+    <Compile Include="FtpParserTests.cs" />
     <Compile Include="WebsiteLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
