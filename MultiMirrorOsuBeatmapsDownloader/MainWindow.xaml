@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultiMirrorOsuBeatmapsDownloader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        x:Name="mainWindow"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+       
+        Title="{Binding Title}" Height="450" Width="800" WindowStyle="None" Background="#FF060200" Opacity="0.8" AllowsTransparency="True" SizeChanged="Window_SizeChanged" ResizeMode="CanResizeWithGrip">
     <Grid>
-        
+        <Grid Margin="0,0,0,0"/>
+        <StackPanel Height="30" Margin="0,0,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button x:Name="firstButton" HorizontalAlignment="Right"  Width="{Binding ButtonWidth}" Height="{Binding ButtonHeight}" Command="{Binding MinimizeWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"  Content="_" Background="Black" Foreground="White" Margin="0" />
+            <Button HorizontalAlignment="Right" Width="{Binding ButtonWidth}" Height="{Binding ButtonHeight}" Command="{Binding MaximizeWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"  Content="□" Background="Black" Foreground="White" Margin="0" />
+            <Button HorizontalAlignment="Right" Width="{Binding ButtonWidth}" Height="{Binding ButtonHeight}" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" Content="X" Background="Black" Foreground="White" Margin="0" />
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -18,11 +18,34 @@ namespace MultiMirrorOsuBeatmapsDownloader
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IResizable
     {
+        private readonly int ButtonCountInBorder = 3;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void Maximize()
+        {
+            if (App.Current.MainWindow.WindowState == WindowState.Maximized)
+                App.Current.MainWindow.WindowState = WindowState.Normal;
+            else
+                App.Current.MainWindow.WindowState = WindowState.Maximized;
+        }
+
+        public void Minimize() =>
+            App.Current.MainWindow.WindowState = WindowState.Minimized;
+       
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            
+            if (e.WidthChanged)
+            {
+                firstButton.Margin = new Thickness(App.Current.MainWindow.ActualWidth - ButtonCountInBorder * firstButton.Width, 0, 0, 0);
+            }
+          
         }
     }
 }
