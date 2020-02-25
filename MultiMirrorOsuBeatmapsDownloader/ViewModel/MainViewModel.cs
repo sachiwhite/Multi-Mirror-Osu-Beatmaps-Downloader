@@ -22,11 +22,8 @@ namespace MultiMirrorOsuBeatmapsDownloader.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        private double WindowHeight;
-        private double WindowWidth;
         public int ButtonHeight { get => 30; }
         public int ButtonWidth { get => 30; }
-      //  public Thickness m;
         public string Title { get; set; }
         public ICommand CloseWindowCommand { get; private set; }
         private void CloseWindow(IResizable window)
@@ -60,22 +57,12 @@ namespace MultiMirrorOsuBeatmapsDownloader.ViewModel
             MinimizeWindowCommand = new RelayCommand<IResizable>(MinimizeWindow);
             
 
-            // m.Left = App.Current.MainWindow.ActualWidth - 2 * ButtonHeight;
             if (IsInDesignMode)
-            {
                 Title = "Multi Mirror Osu Beatmap Downloader (Design Mode)";
-            }
             else
-            {
                 Title = "Multi Mirror Osu Beatmap Downloader";
-                // Code runs "for real"
-            }
         }
 
-        private void SaveWindowSize()
-        {
-            WindowHeight = App.Current.MainWindow.ActualHeight;
-            WindowWidth = App.Current.MainWindow.ActualWidth;
-        }
+       
     }
 }
